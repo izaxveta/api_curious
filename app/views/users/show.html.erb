@@ -1,1 +1,24 @@
-hi
+<div class='user'>
+  <nav>
+    <p>Pull Requests</p>
+    <p>Issues</p>
+    <p>Marketplace</p>
+    <p>Explore</p>
+  </nav>
+  <div class='profile'>
+    <div class='card'>
+      <%= image_tag @user.image_url, class: 'avatar' %>
+      <div class='name'><%= @user.name %></div>
+      <div class='nickname'><%= @user.nickname %></div>
+    </div>
+    <div class='info'>
+      <div class='options'>
+        <p>Overview</p>
+        <p>Repositories</p>
+        <p>Stars</p>
+        <p>Followers</p>
+        <p>Following</p>
+      </div>
+    </div>
+  </div>
+</div>
