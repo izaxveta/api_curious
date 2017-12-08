@@ -6,6 +6,10 @@ class GitHubService
     end
   end
 
+  def get_profile
+    get_json('/user')
+  end
+
   def get_repositories
     get_json('/user/repos')
   end
