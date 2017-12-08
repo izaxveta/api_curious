@@ -1,0 +1,72 @@
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  a {
+    text-decoration: none;
+  }
+}
+
+nav {
+  background-color: rgb(41, 41, 41);
+  color: darkgrey;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 55px;
+  width: 100%;
+}
+
+.user {
+  width: 1000px;
+}
+
+.profile {
+  padding-top: 20px;
+  display: flex;
+}
+
+.card{
+  .avatar {
+    width: 230px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .name{
+    font-size: 26px;
+  }
+
+  .nickname {
+    font-size: 20px;
+  }
+
+}
+
+.info {
+  width: 100%;
+
+  .options {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    color: darkgrey;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    width: 100%;
+  }
+
+  .repo {
+    justify-content: left;
+    color: black;
+    display: block;
+    padding: 20px;
+  }
+}
+

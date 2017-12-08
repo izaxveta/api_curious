@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
-    oauth_response = Faraday.get("https://api.github.com/user?access_token=#{current_user.token}")
-    auth = JSON.parse(oauth_response.body)
-    @user = current_user
+    @github_user = GitHubUser.new(current_user)
+    @user_profile = @github_user.profile
+    @repos = @github_user.repositories
   end
 end
