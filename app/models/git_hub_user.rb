@@ -5,8 +5,12 @@ class GitHubUser
     @user = user
   end
 
+  def profile
+    github.get_profile
+  end
+
   def repositories
-      github.get_repositories
+    github.get_repositories
   end
 
   private
