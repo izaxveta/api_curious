@@ -1,9 +1,10 @@
 class GitHubService
-  def initialize(user)
-    @conn = Faraday.new(url: "https://api.github.com") do |faraday|
-      faraday.headers['Authorization'] = "token #{user.token}"
-      faraday.adapter Faraday.default_adapter
-    end
+  def initialize(current_user)
+    @current_user = current_user
+  end
+
+  def user_starred_repos
+    get_json("/users/#{current_user.nickname}/starred")
   end
 
   def get_profile
@@ -15,10 +16,17 @@ class GitHubService
   end
 
   private
-    attr_reader :conn
+    attr_reader :current_user
 
     def get_json(url)
-      response = conn.get(url)
+      response = connection.get(url)
       JSON.parse(response.body, symbolize_headers: true)
+    end
+
+    def connection
+      @connection ||= Faraday.new(url: "https://api.github.com") do |faraday|
+        faraday.headers['Authorization'] = "token #{current_user.token}"
+        faraday.adapter Faraday.default_adapter
+      end
     end
 end
