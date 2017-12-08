@@ -7,18 +7,29 @@
   </nav>
   <div class='profile'>
     <div class='card'>
-      <%= image_tag @user.image_url, class: 'avatar' %>
-      <div class='name'><%= @user.name %></div>
-      <div class='nickname'><%= @user.nickname %></div>
+      <%= image_tag @github_user.image_url, class: 'avatar' %>
+      <div class='name'><%= @github_user.name %></div>
+      <div class='nickname'><%= @github_user.nickname %></div>
+      <div class='bio'><%= @user_profile['bio'] %></div>
     </div>
     <div class='info'>
       <div class='options'>
-        <p>Overview</p>
-        <p>Repositories</p>
-        <p>Stars</p>
-        <p>Followers</p>
-        <p>Following</p>
+        <%= link_to 'Overview', @user_profile['html_url'] %>
+        <div><%= link_to 'Repositories', @user_profile['repos_url'] %> <%= @user_profile['public_repos'] %></div>
+        <div><%= link_to 'Starred', @user_profile['starred_url'] %> <%= @user_profile['followers'] %></div>
+        <div><%= link_to 'Followers', @user_profile['followers_url'] %> <%= @user_profile['followers'] %></div>
+        <div><%= link_to 'Following', @user_profile['following_url'] %> <%= @user_profile['following'] %></div>
       </div>
+      <p>Popular Repositories</p>
+        <% @repos.take(6).each do |repo| %>
+          <div class='repo'>
+            <p><%= link_to "#{repo['name']}", repo['name'] %></p>
+            <% if !repo['full_name'].include?(@github_user.nickname) %>
+              <p>Forked from <%= link_to "#{repo['full_name']}", repo['name'] %></p>
+            <% end %>
+            <p><%= repo['language'] %></p>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>

@@ -4,6 +4,9 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0px;
+  a {
+    text-decoration: none;
+  }
 }
 
 nav {
@@ -32,6 +35,7 @@ nav {
   .avatar {
     width: 230px;
     height: auto;
+    border-radius: 10px;
   }
 
   .name{
@@ -56,6 +60,13 @@ nav {
     letter-spacing: 1px;
     font-weight: bolder;
     width: 100%;
+  }
+
+  .repo {
+    justify-content: left;
+    color: black;
+    display: block;
+    padding: 20px;
   }
 }
 
