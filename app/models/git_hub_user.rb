@@ -1,6 +1,7 @@
 class GitHubUser
   extend Forwardable
   def_delegators :@user, :image_url, :name, :nickname, :token
+
   def initialize(user)
     @user = user
   end
@@ -9,13 +10,11 @@ class GitHubUser
     github.get_profile
   end
 
-  def repositories
-    github.get_repositories
-  end
-
   private
 
+  attr_reader :user
+
   def github
-    GitHubService.new(@user)
+    @github ||= GitHubService.new(user)
   end
 end
