@@ -1,0 +1,13 @@
+<% @user_repos.display_user_repositories.each do |repo| %>
+  <%= link_to "#{repo['name']}", repo['html_url'] %><br>
+  <% if repo['description'] != nil %>
+    <%= repo['description'] %><br>
+  <% end %>
+  <% if repo['fork'] == true %>
+    Forked from <%  %><br>
+  <% end %>
+  <% if repo['language'] != nil %>
+    <%= repo['language'] %>
+  <% end %>
+  <%= @user_repos.display_repo_updated_date(repo['updated_at'])%><br><br>
+<% end %>

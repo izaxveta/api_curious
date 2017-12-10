@@ -4,7 +4,15 @@ class GitHubService
   end
 
   def get_profile
-    get_json('/user')
+    get_json("/users/#{user.nickname}")
+  end
+
+  def get_starred_repositories
+    get_json("/users/#{user.nickname}/starred")
+  end
+
+  def get_user_repositories
+    get_json("users/#{user.nickname}/repos")
   end
 
   private

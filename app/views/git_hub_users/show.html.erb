@@ -1,5 +1,21 @@
 <h2>GitHub Dashboard</h2>
 
 <%= image_tag current_user.image_url %>
-
 <%= @profile.display_name %>
+<%= @profile.display_nickname %>
+
+
+
+<%= @profile.display_bio %>
+<%= @profile.display_organizations %>
+
+<%= link_to "Overview", @profile.overview_url  %>
+<%= link_to "Repositories", @profile.repo_url %>
+<%= @profile.display_repo_count %>
+<%= link_to "Stars", @profile.starred_url %>
+<%= @profile.display_star_count %>
+<%= link_to "Followers", @profile.followers_url %>
+<%= @profile.display_followers_count %>
+<%= link_to "Following", @profile.following_url %>
+<%= @profile.display_following_count %>
+<%= @profile.display_user_repositories %>
